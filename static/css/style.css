@@ -37,7 +37,7 @@ header {
 }
 .search {
     display: grid;
-    grid-template-columns: 60% 30%;
+    grid-template-columns: 60% 35%;
     margin: 0 auto;
     margin-top: 5%;
     grid-gap: 3%;
@@ -70,6 +70,7 @@ header {
 #search-button
 {
 	cursor: pointer;
+	font-size: 2em;
 	padding: 8%;
 
 }
