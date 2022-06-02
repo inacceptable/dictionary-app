@@ -56,7 +56,7 @@
 
                 $(".word-container").append("<h1 class='display-1'>" + search_result + " - Definitions" + "</h1>");
 
-                var synonyms = '<p>';
+                var synonyms = '<p style="word-wrap: break-word;" >';
                     var html = '';
                     var pronunciation = []; 
                 for (var x in data.apiresult) {
