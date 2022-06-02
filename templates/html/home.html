@@ -10,8 +10,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' type='text/css' href="{% static 'css/style.css' %}" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">  </script>    
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js">  </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"> </script>
 </head>
 
 <body>
@@ -20,8 +20,8 @@
             <img id='logo' src="{% static 'images/logo.svg' %}" alt='' />
         </div>
         <div class='banner'>
-            <h1 style='background-color: #50B2C0; color:white; padding: 1%; border-radius:5px; user-select:none;'>Click the Search bar to enter a word</h1>
-            <h1 style='background-color: #FEEFDD; color:black; padding: 1%; border-radius:5px; user-select:none'>The definition will then pop up below</h1>
+            <h1 style='background-color: #50B2C0; color:white; padding: 1%; border-radius:5px; user-select:none;'>Click the Search bar to enter a word.</h1>
+            <h1 style='background-color: #FEEFDD; color:black; padding: 1%; border-radius:5px; user-select:none'>The definition will then pop up below!</h1>
         </div>
     </header>
     <div class='search'>
@@ -34,6 +34,12 @@
     </div>
     <div style='display: none;' class='word-container'>
     </div>
+       <script>
+        $("body").on("click", "#synonym-button", function(){
+             $(".synonym-container").toggle('fade');
+
+});
+    </script>
     <script type="text/javascript">
     $("#search-button").click(function() {
         var search_result = $('#search-input').val();
@@ -49,39 +55,50 @@
 
 
                 $(".word-container").append("<h1 class='display-1'>" + search_result + " - Definitions" + "</h1>");
+
+                var synonyms = '';
+                    var html = '';
+                    var pronunciation = []; 
                 for (var x in data.apiresult) {
-                    var html='';
                     if (data.apiresult.hasOwnProperty(x)) {
                         var y = data.apiresult[x].meanings;
                         for (var a in y) {
                             if (y.hasOwnProperty(a)) {
                                 html += "<div>"
                                 html += ("<h1>" + y[a].partOfSpeech + "</h1>");
+                                synonyms += y[a].synonyms;
                                 for (var key in y[a].definitions) {
                                     if (y[a].definitions.hasOwnProperty(key)) {
                                         html += "<p>" + y[a].definitions[key].definition + "</p>";
-
                                     }
                                 }
-                                html += "</div>"
+                                html += "</div>";
 
                             }
                         }
-                        $(".word-container").append(html);
+
                     }
 
+
                 }
-                setTimeout(function(){ 
+                html += '<h1 id="synonym-button" style="text-align:center;">Synonyms</h1>';
+                html += "<div class='synonym-container' style='display:none; background-color:#FFA69E; text-align:center;'>"
+                html += synonyms 
+                html += "</div>"
 
-$('html').scrollTop(400);
+                    $(".word-container").append(html);
+                setTimeout(function() {
 
-}, 500);
+                    $('html').scrollTop(400);
+
+                }, 500);
 
 
             }
         });
     });
     </script>
+ 
 </body>
 
 </html>
