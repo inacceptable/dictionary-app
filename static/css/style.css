@@ -20,7 +20,7 @@ header {
 	border-left: 5px solid black;
 	border-top: 5px solid black;
 	padding: 3%;
-	width: 70%;
+	width: 100%;
 }
 
 .word-container
@@ -31,7 +31,7 @@ header {
 	color: white;
 	margin-top: 5%; 
 	padding: 2%;
-	border: 7px solid #5E6472;
+
 	border-radius: 3px;
 	margin-bottom: 5%;
 }
@@ -84,7 +84,7 @@ header {
 
 .word-container div 
 {
-	width: 80%;
+	width: 100%;
 	margin: 0 auto;
 	background-color: white;
 	display: inline-block;
@@ -93,7 +93,22 @@ header {
 	border-radius: 5px ;
 	margin-top: 1%;
 }
-
+#synonym-button
+{
+	width: 100%; 
+	background-color: #5E6472;
+	color: white;
+	font-size: 2em; 
+	margin-top: 3%;
+	cursor: pointer;
+	padding: 2%; 
+	border-radius: 5px; 
+}
+#synonym-button:hover
+{
+	background-color: black;
+	color: white;
+}
 
 @media only screen and (max-width: 1100px) {
   header, .search, .word-container
@@ -110,5 +125,12 @@ header {
   .banner
   {
   	margin: 0 auto;
+  	margin-top: 2%;
+  	border: 0;
+  }
+  .search, .word-container
+  {
+  	width: 95%;
+  	border-radius: 3px;
   }
 }
