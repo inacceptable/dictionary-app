@@ -56,7 +56,7 @@
 
                 $(".word-container").append("<h1 class='display-1'>" + search_result + " - Definitions" + "</h1>");
 
-                var synonyms = '';
+                var synonyms = '<p>';
                     var html = '';
                     var pronunciation = []; 
                 for (var x in data.apiresult) {
@@ -83,7 +83,7 @@
                 }
                 html += '<h1 id="synonym-button" style="text-align:center;">Synonyms</h1>';
                 html += "<div class='synonym-container' style='display:none; background-color:#FFA69E; text-align:center;'>"
-                html += synonyms 
+                html += synonyms + "</p>" 
                 html += "</div>"
 
                     $(".word-container").append(html);
