@@ -37,6 +37,11 @@
        <script>
         $("body").on("click", "#synonym-button", function(){
              $(".synonym-container").toggle('fade');
+              setTimeout(function() {
+
+                    $('html').scrollTop(10000);
+
+                }, 500);
 
 });
     </script>
